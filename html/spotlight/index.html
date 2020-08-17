@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>瀑布流</title>
+  <title>聚光灯</title>
   <style>
     html {
       font-size: 15px;
@@ -16,6 +16,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
       min-height: 100vh;
     }
 
@@ -61,6 +62,46 @@
         clip-path: ellipse(100px 100px at 0% 50%);
       }
     }
+
+    .second {
+
+      position: relative;
+    }
+
+    h2 {
+      color: #333;
+      font-family: Helvetica;
+      margin: 0;
+      padding: 0;
+      font-size: 8rem;
+      letter-spacing: -.3rem;
+      position: relative;
+      cursor: pointer;
+    }
+
+    @media screen and (max-width: 800px) {
+      h2 {
+        font-size: 2rem;
+      }
+
+      h2.child {
+        clip-path: ellipse(10px 10px at 0% 50%);
+      }
+    }
+
+
+    h2.child {
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: transparent;
+      clip-path: ellipse(100px 100px at 0% 50%);
+      background-image: url(https://images.unsplash.com/photo-1570703628669-e590592ffa41?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);
+      background-size: 150%;
+      background-position: center center;
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
   </style>
 </head>
 
@@ -68,7 +109,88 @@
   <h1 data-spotlight="Yeung:)">
     Yeung
   </h1>
+  <div class="second">
 
+    <h2 class="">
+      鼠标放上来
+    </h2>
+    <h2 class="child">鼠标放上来</h2>
+  </div>
+  <script>
+    var h2 = document.querySelectorAll('h2');
+    window.onresize = function () {
+
+      Width = window.innerWidth//浏览器窗口的内部宽度（包括滚动条）
+
+        || document.documentElement.clientWidth
+
+        || document.body.clientWidth;
+
+      var Height = window.innerHeight//浏览器窗口的内部高度（包括滚动条）
+
+        || document.documentElement.clientWidth
+
+        || document.body.clientHeight;
+
+      console.log(Width, Height);
+      addOn()
+
+    }
+    window.onload = function () {
+
+      addOn()
+    }
+    var Width = window.innerWidth//浏览器窗口的内部宽度（包括滚动条）
+    var h2Width = document.querySelector('h2').clientWidth
+    var h2ld, h2rd; // h2元素的x1 和x2
+    function addOn() {
+
+      // pc
+      if (Width > 800) {
+        console.log('当前是电脑端')
+        h2[0].addEventListener('mousemove', changeClipp)
+        h2[1].addEventListener('mousemove', changeClipp)
+        h2[0].innerHTML = "鼠标放上来"
+        h2[1].innerHTML = "鼠标放上来"
+        h2[1].style['clip-path'] = `ellipse(100px 100px at 0% 50%)`
+      } else {
+        console.log('当前是移动端')
+        h2rd = Width / 2 + h2Width / 2
+        h2ld = Width / 2 - h2Width / 2
+        h2[1].style['clip-path'] = `ellipse(50px 50px at 0% 50%)`
+        h2[0].innerHTML = "按下与滑动"
+        h2[1].innerHTML = "按下与滑动"
+        h2[0].addEventListener('touchstart', changeClipp)
+        h2[1].addEventListener('touchstart', changeClipp)
+      }
+
+    }
+    var startX, startWidth
+    function changeClipp(e) {
+      if (Width > 800) {
+        var clipp = ` ellipse(100px 100px at ${e.offsetX}px 50%)`
+        h2[1].style['clip-path'] = clipp
+      } else {
+        startX = e.changedTouches[0].clientX
+        startWidth = parseInt(window.getComputedStyle(document.querySelector("h2")).width, 10)
+        // console.log(startWidth)
+        e.target.addEventListener('touchmove', onDrag)
+      }
+    }
+    function onDrag(e) {
+      var neww = startWidth + e.changedTouches[0].clientX - startX
+      // 只能在h2元素里滑动
+      if (e.changedTouches[0].clientX < h2rd && e.changedTouches[0].clientX > h2ld) {
+        // 当前滑动的百分比  滑动坐标轴为h2 元素的 x1 和x2
+        var b = (100 - (h2rd - e.changedTouches[0].clientX) / h2Width * 100)
+        var a = e.changedTouches[0].clientX / (h2ld + h2rd) * 100
+        console.log(`a == ${a.toFixed(2)}  ;  b == ${b.toFixed(2)}`)
+        var clipp = ` ellipse(50px 50px at ${b}% 50%)`
+        h2[1].style['clip-path'] = clipp
+      }
+
+    }
+  </script>
 </body>
 
 </html>
