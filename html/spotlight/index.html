@@ -79,7 +79,14 @@
       cursor: pointer;
     }
 
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 779px) {
+      /* h2.noIframe {
+        font-size: 2rem;
+      }
+
+      h2.noIframe.child {
+        clip-path: ellipse(10px 10px at 0% 50%);
+      } */
       h2 {
         font-size: 2rem;
       }
@@ -137,16 +144,28 @@
 
     }
     window.onload = function () {
-
       addOn()
     }
     var Width = window.innerWidth//浏览器窗口的内部宽度（包括滚动条）
-    var h2Width = document.querySelector('h2').clientWidth
-    var h2ld, h2rd; // h2元素的x1 和x2
+  
+    var h2ld, h2rd,h2Width; // h2元素的x1 和x2 和元素宽度
+    var isIframe = false;//判断html是否在iframe中
     function addOn() {
-
+      h2Width = document.querySelector('h2').clientWidth
       // pc
-      if (Width > 800) {
+      //判断是否在iframe中
+      console.log(self)
+      if (self != top) {
+        // parent.window.location.replace(window.location.href);
+        isIframe = true
+        
+      }
+      if(!isIframe){
+        h2[0].classList.add("noIframe");
+        h2[1].classList.add("noIframe");
+      }
+      console.log(Width)
+      if (Width >= 780 ) {
         console.log('当前是电脑端')
         h2[0].addEventListener('mousemove', changeClipp)
         h2[1].addEventListener('mousemove', changeClipp)
@@ -167,7 +186,7 @@
     }
     var startX, startWidth
     function changeClipp(e) {
-      if (Width > 800) {
+      if (Width >= 780 ) {
         var clipp = ` ellipse(100px 100px at ${e.offsetX}px 50%)`
         h2[1].style['clip-path'] = clipp
       } else {
