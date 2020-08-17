@@ -182,6 +182,16 @@
       // 只能在h2元素里滑动
       if (e.changedTouches[0].clientX < h2rd && e.changedTouches[0].clientX > h2ld) {
         // 当前滑动的百分比  滑动坐标轴为h2 元素的 x1 和x2
+        /**
+         * 计算 x 在 x1 和 x2 中的坐标点的百分值
+         * （即h2元素的最左边和最右边）
+         * x-当前坐标  x1-最左边的坐标  x2-最右边的坐标
+         * ***************************************
+         * (x2 - x) / (x2 - x1)
+         * 换算成百分比  0%表示最左边 100&表示最右边，所以要用 100-
+         * ***************************************
+         * 100 - ((x2 - x) / (x2 - x1) * 100)
+         */
         var b = (100 - (h2rd - e.changedTouches[0].clientX) / h2Width * 100)
         var a = e.changedTouches[0].clientX / (h2ld + h2rd) * 100
         console.log(`a == ${a.toFixed(2)}  ;  b == ${b.toFixed(2)}`)
