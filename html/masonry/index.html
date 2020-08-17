@@ -6,43 +6,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>瀑布流</title>
   <style>
-    body{
-  font-family: Helvetica;  
-}
+    body {
+      font-family: Helvetica;
+    }
 
-.masonry{
-  column-count:4;
-  column-gap:0;
-}
+    .masonry {
+      column-count: 4;
+      column-gap: 0;
+    }
 
-.item{
-  padding:2px;
-  position: relative;
-  counter-increment: item-counter;
-}
-.item img{
-  display:block;
-  width:100%;
-  height:auto;
-}
-.item::after{
-  content:counter(item-counter);
-  position: absolute;
-  display: block;
-  top:2px;
-  left:2px;
-  width:24px;
-  height:24px;
-  text-align:center;
-  line-height:24px;
-  background-color:#000;
-  color:#fff;
-}
+    .item {
+      padding: 2px;
+      position: relative;
+      /* counter-increment: item-counter; */
+    }
+
+    .item img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .item::after {
+      /* content: counter(item-counter); */
+      position: absolute;
+      display: block;
+      top: 2px;
+      left: 2px;
+      width: 24px;
+      height: 24px;
+      text-align: center;
+      line-height: 24px;
+      background-color: #000;
+      color: #fff;
+    }
   </style>
 </head>
 
 <body>
-  <div class="masonry" >
+  <div class="masonry">
     <div class="item">
       <img src="https://picsum.photos/360/460?random=1">
     </div>
