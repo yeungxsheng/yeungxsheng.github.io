@@ -1,3 +1,6 @@
-.y-text-btn:hover {
-  box-shadow: 0px 1px 0px 0px #ccc;
+.y-iframe{
+  width: 100%;
+    overflow: hidden;
+    overflow-y: hidden;
+    min-height: 100vh;
 }
