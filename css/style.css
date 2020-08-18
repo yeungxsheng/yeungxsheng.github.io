@@ -233,6 +233,7 @@ a:hover {
   flex-grow: 1;
   flex-shrink: 0;
   flex-basis: auto;
+  position: relative;
 }
 .container {
   padding-left: 1em;
@@ -1362,4 +1363,82 @@ header label {
 }
 .y-text-btn:hover {
   box-shadow: 0px 1px 0px 0px #ccc;
+}
+.main-bg {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  clip-path: ellipse(100px 100px at 0px 50%);
+/* animation: 5s spotlight infinite; */
+  background-image: url("../image/main-bg.jpg");
+  background-size: 150%;
+  background-position: center center;
+}
+.floating-btn {
+  display: inline-block;
+  position: absolute;
+  bottom: 10px;
+  font-size: 1rem;
+}
+.floating-btn.right {
+  right: 10px;
+}
+.floating-btn.left {
+  left: 10px;
+}
+@-moz-keyframes spotlight {
+  0% {
+    -webkit-clip-path: ellipse(100px 100px at 0% 50%);
+    clip-path: ellipse(100px 100px at 0% 50%);
+  }
+  50% {
+    -webkit-clip-path: ellipse(100px 100px at 100% 50%);
+    clip-path: ellipse(100px 100px at 100% 50%);
+  }
+  100% {
+    -webkit-clip-path: ellipse(100px 100px at 0% 50%);
+    clip-path: ellipse(100px 100px at 0% 50%);
+  }
+}
+@-webkit-keyframes spotlight {
+  0% {
+    -webkit-clip-path: ellipse(100px 100px at 0% 50%);
+    clip-path: ellipse(100px 100px at 0% 50%);
+  }
+  50% {
+    -webkit-clip-path: ellipse(100px 100px at 100% 50%);
+    clip-path: ellipse(100px 100px at 100% 50%);
+  }
+  100% {
+    -webkit-clip-path: ellipse(100px 100px at 0% 50%);
+    clip-path: ellipse(100px 100px at 0% 50%);
+  }
+}
+@-o-keyframes spotlight {
+  0% {
+    -webkit-clip-path: ellipse(100px 100px at 0% 50%);
+    clip-path: ellipse(100px 100px at 0% 50%);
+  }
+  50% {
+    -webkit-clip-path: ellipse(100px 100px at 100% 50%);
+    clip-path: ellipse(100px 100px at 100% 50%);
+  }
+  100% {
+    -webkit-clip-path: ellipse(100px 100px at 0% 50%);
+    clip-path: ellipse(100px 100px at 0% 50%);
+  }
+}
+@keyframes spotlight {
+  0% {
+    -webkit-clip-path: ellipse(100px 100px at 0% 50%);
+    clip-path: ellipse(100px 100px at 0% 50%);
+  }
+  50% {
+    -webkit-clip-path: ellipse(100px 100px at 100% 50%);
+    clip-path: ellipse(100px 100px at 100% 50%);
+  }
+  100% {
+    -webkit-clip-path: ellipse(100px 100px at 0% 50%);
+    clip-path: ellipse(100px 100px at 0% 50%);
+  }
 }
