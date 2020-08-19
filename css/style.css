@@ -1386,6 +1386,17 @@ header label {
 .floating-btn.left {
   left: 10px;
 }
+.y-flex-box {
+  display: flex;
+  flex-wrap: wrap;
+}
+a.y-flex-item {
+  flex: 1;
+}
+a.y-flex-item {
+  display: inline-block;
+  width: 50%;
+}
 @-moz-keyframes spotlight {
   0% {
     -webkit-clip-path: ellipse(100px 100px at 0% 50%);

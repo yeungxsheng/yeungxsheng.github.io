@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="十一">
+
+
+
+
+
+<title>Flutter-仿小红书 | Yeung</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/custom.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 5.0.2"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Yeungxsheng&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Yeungxsheng&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; 菜单</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+           <!-- 背景聚光灯 -->
+            <div class="main-bg"></div>
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Flutter-仿小红书</h1>
+            
+                <div class="post-meta">
+                    
+                        发布者: <a itemprop="author" rel="author" href="/">十一</a>
+                    
+
+                    
+                        <span class="post-time">
+                        发布时间: <a href="#">八月 19, 2020&nbsp;&nbsp;23:44:59</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <ul>
+<li>地址<ol>
+<li><a target="_blank" rel="noopener" href="https://github.com/yeungxsheng/red-book">GitHub</a></li>
+<li><a target="_blank" rel="noopener" href="http://106.52.133.67:9400/apk/red-book.apk">.apk(安卓手机请在浏览器打开)</a></li>
+</ol>
+</li>
+</ul>
+<h2 id="开发进度图"><a href="#开发进度图" class="headerlink" title="开发进度图"></a>开发进度图</h2><div class="y-flex-box">
+  <a target="_blank" rel="noopener" href="http://106.52.133.67:9400/apk/red-book/Screenshot_2020-08-19-22-36-18-83.jpg" class="y-flex-item" style="margin:0 10px;;width:50%;">
+    <img src="http://106.52.133.67:9400/apk/red-book/Screenshot_2020-08-19-22-36-18-83.jpg" />
+  </a>
+  <a target="_blank" rel="noopener" href="http://106.52.133.67:9400/apk/red-book/Screenshot_2020-08-19-22-36-08-74.jpg" class="y-flex-item" style="margin:0 10px;width:50%;">
+    <img src="http://106.52.133.67:9400/apk/red-book/Screenshot_2020-08-19-22-36-08-74.jpg" />
+  </a>
+  <a target="_blank" rel="noopener" href="http://106.52.133.67:9400/apk/red-book/Screenshot_2020-08-19-22-27-21-49_e32fde562e780b7.jpg" class="y-flex-item" style="margin:0 10px;;width:50%;">
+    <img src="http://106.52.133.67:9400/apk/red-book/Screenshot_2020-08-19-22-27-21-49_e32fde562e780b7.jpg" />
+  </a>
+  <a target="_blank" rel="noopener" href="http://106.52.133.67:9400/apk/red-book/Screenshot_2020-08-19-22-27-14-18_e32fde562e780b7.jpg" class="y-flex-item" style="margin:0 10px;;width:50%;">
+    <img src="http://106.52.133.67:9400/apk/red-book/Screenshot_2020-08-19-22-27-14-18_e32fde562e780b7.jpg" />
+  </a>
+</div>
+
+<h2 id="遇到的坑总结🔨"><a href="#遇到的坑总结🔨" class="headerlink" title="遇到的坑总结🔨"></a>遇到的坑总结🔨</h2><h3 id="❌flutter打包后没有网络-即接口都无法访问-Image-network也同样失效"><a href="#❌flutter打包后没有网络-即接口都无法访问-Image-network也同样失效" class="headerlink" title="❌flutter打包后没有网络,即接口都无法访问,Image.network也同样失效"></a>❌flutter打包后没有网络,即接口都无法访问,Image.network也同样失效</h3><p>✅找到文件<code>flutter项目/android/app/src/main/AndroidManifest.xml</code>,在最底部<code>&lt;/manifest&gt;</code>前加上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;uses-permission android:name&#x3D;&quot;android.permission.READ_PHONE_STATE&quot; &#x2F;&gt; &lt;!-- 访问电话状态 --&gt;</span><br><span class="line">&lt;uses-permission android:name&#x3D;&quot;android.permission.INTERNET&quot; &#x2F;&gt; &lt;!-- 允许全部网络访问  --&gt;</span><br><span class="line">&lt;uses-permission android:name&#x3D;&quot;android.permission.ACCESS_NETWORK_STATE&quot; &#x2F;&gt; &lt;!-- 获取网络信息状态  --&gt;</span><br><span class="line">&lt;uses-permission android:name&#x3D;&quot;android.permission.ACCESS_WIFI_STATE&quot; &#x2F;&gt; &lt;!-- 获取当前WiFi接入的状态以及WLAN热点的信息  --&gt; </span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="❌Widget不在屏幕可视视野内的时候会被flutter销毁Widget释放内存"><a href="#❌Widget不在屏幕可视视野内的时候会被flutter销毁Widget释放内存" class="headerlink" title="❌Widget不在屏幕可视视野内的时候会被flutter销毁Widget释放内存"></a>❌Widget不在屏幕可视视野内的时候会被flutter销毁Widget释放内存</h3><p>✅可以使用<code>AutomaticKeepAliveClientMixin</code>mixin 保证当前Widget树缓存起来不被内存机制清除</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 只适合业务逻辑&#x2F;交互比较简单, 单纯的组件,复杂组件参考2</span><br><span class="line">class _YouWidgetState extends State&lt;YouWidget&gt; with AutomaticKeepAliveClientMixin</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/53447080/flutter-maintant-state-of-child-stateful-widget#comment93770617_53448643">参考别人的解决方案EN</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 业务逻辑&#x2F;交互比较多比较复杂的</span><br><span class="line">&#x2F;&#x2F; 把要缓存的widget里的属性转移给父组件管理来管理state,子组件只负责从父组件获取data进行widget渲染</span><br><span class="line">&#x2F;&#x2F; 这样虽然子组件移出视野被消除后,能确保数据data不被消除,也就不需要再重新请求数据的动作</span><br><span class="line"></span><br><span class="line">class ParentWidget extends State&lt;SomeParent&gt; &#123;</span><br><span class="line">  List&lt;Model&gt; models;</span><br><span class="line"></span><br><span class="line">  &#x2F;&#x2F;.......</span><br><span class="line"></span><br><span class="line">  @override</span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">    return _buildListView(models, _scrollController);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  Widget _buildListView(List&lt;PhotoModel&gt; models, ScrollController scrollController) &#123;</span><br><span class="line">    return ChildWidget(models[0].likeBtnClickedListener,models[1].followBtnClickedListener);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class ChildWidget extends StatelessWidget&#123;</span><br><span class="line"></span><br><span class="line">  ChildWidget(</span><br><span class="line">      &#x2F;&#x2F;...,</span><br><span class="line">      this.likeBtnClickedListener,</span><br><span class="line">      this.followBtnClickedListener,</span><br><span class="line">      )</span><br><span class="line">  &#x2F;&#x2F;...</span><br><span class="line">  Widget build(BuildContext context)&#123;</span><br><span class="line">    return Card(</span><br><span class="line">      &#x2F;&#x2F;.......</span><br><span class="line">      IconButton(</span><br><span class="line">        onPressed: likeBtnClickedListener,</span><br><span class="line">      ),</span><br><span class="line">      IconButton(</span><br><span class="line">        onPressed: followBtnClickedListener,</span><br><span class="line">      ),</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="❌Scaffold-appBar-title的两边留空"><a href="#❌Scaffold-appBar-title的两边留空" class="headerlink" title="❌Scaffold.appBar.title的两边留空,"></a>❌Scaffold.appBar.title的两边留空,</h3><p>✅ <code>AppBar(titleSpacing: 0.0,)</code>可以使appBar.title两边不留间隙,<br>查看官方文档不难发现<code>Defaults to [NavigationToolbar.kMiddleSpacing]</code><br>在组件任何地方都可以调用<code>NavigationToolbar.kMiddleSpacing</code>来获取当前appBar的两边边距</p>
+<hr>
+<h3 id="❌Random-next-随机数无法指定min-max范围"><a href="#❌Random-next-随机数无法指定min-max范围" class="headerlink" title="❌Random().next()随机数无法指定min-max范围"></a>❌Random().next()随机数无法指定min-max范围</h3><p>✅ 参考随机生成100-999的函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 随机生成 $min00 - $max99 的数字</span><br><span class="line">&#x2F;&#x2F; minUnit最小个位数  maxUnit最大个位数</span><br><span class="line">randomHeight(&#123;minUnit: 1, maxUnit: 9&#125;) &#123;</span><br><span class="line">  var f &#x3D; Random().nextInt(9);</span><br><span class="line">  var m &#x3D; Random().nextInt(99);</span><br><span class="line">  return int.parse(&#39;$&#123;f &gt; minUnit ? f &lt; maxUnit ? f : maxUnit : minUnit&#125;$&#123;m &lt; 10 ? &#39;00&#39; : m&#125;&#39;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="❌随机生成中文Unicode并转中文"><a href="#❌随机生成中文Unicode并转中文" class="headerlink" title="❌随机生成中文Unicode并转中文"></a>❌随机生成中文Unicode并转中文</h3><p>✅ 参考(这个中文生的乱七八糟😥)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 随机生成基本汉字 库量20902字</span><br><span class="line">&#x2F;&#x2F; 编码库范围 4E00-9FA5</span><br><span class="line">String randomChinese(&#123;minLength: 1, maxLength: 1&#125;) &#123;</span><br><span class="line">  String str &#x3D; &#39;&#39;;</span><br><span class="line">  &#x2F;&#x2F; 19968</span><br><span class="line">  final int _min &#x3D; int.parse(&#39;0x4E00&#39;);</span><br><span class="line">  &#x2F;&#x2F; 40869</span><br><span class="line">  final int _max &#x3D; int.parse(&#39;0x9FA5&#39;);</span><br><span class="line">  _r(max) &#123;</span><br><span class="line">    return Random().nextInt(max);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  var ma &#x3D; _r(maxLength);</span><br><span class="line">  &#x2F;&#x2F; 最少要多少长度</span><br><span class="line">  ma &#x3D; ma &gt; minLength ? ma : minLength;</span><br><span class="line">  for (var i &#x3D; 0; i &lt; ma; i++) &#123;</span><br><span class="line">    var r &#x3D; Random().nextInt(_max);</span><br><span class="line">    &#x2F;&#x2F; 如果大于第一个汉字编码</span><br><span class="line">    if (r &gt; _min) &#123;</span><br><span class="line">      str &#x3D; str + String.fromCharCode(r);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      var a &#x3D; _r(4), b &#x3D; _r(9), c &#x3D; _r(9), d &#x3D; _r(9), e &#x3D; _r(9);</span><br><span class="line">      &#x2F;&#x2F; 范围一定在1-4</span><br><span class="line">      a &#x3D; a &gt;&#x3D; 1 &amp;&amp; a &lt;&#x3D; 4 ? a : 1;</span><br><span class="line">      &#x2F;&#x2F; 第一位达到最大的情况下,b不能超过0</span><br><span class="line">      b &#x3D; a &#x3D;&#x3D; 1 ? 9 : a &gt;&#x3D; 4 ? 0 : b;</span><br><span class="line">      c &#x3D; a &#x3D;&#x3D; 1 ? 9 : a &gt;&#x3D; 4 ? c &lt;&#x3D; 8 ? c : 8 : c;</span><br><span class="line">      d &#x3D; a &#x3D;&#x3D; 1 ? d &gt;&#x3D; 6 ? d : 6 : a &gt;&#x3D; 4 ? d &lt;&#x3D; 6 ? d : 6 : d;</span><br><span class="line">      e &#x3D; a &#x3D;&#x3D; 1 ? e &gt;&#x3D; 8 ? e : 8 : a &gt;&#x3D; 4 ? e &lt;&#x3D; 9 ? e : 9 : e;</span><br><span class="line">      str &#x3D; str + String.fromCharCode(int.parse(&#39;$a$b$c$d$e&#39;));</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return str;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="❌Scaffold-body通过bottomNavigationBar切换数组里的widget时-切换后无法缓存原来的body"><a href="#❌Scaffold-body通过bottomNavigationBar切换数组里的widget时-切换后无法缓存原来的body" class="headerlink" title="❌Scaffold.body通过bottomNavigationBar切换数组里的widget时,切换后无法缓存原来的body"></a>❌Scaffold.body通过bottomNavigationBar切换数组里的widget时,切换后无法缓存原来的body</h3><p>✅ <code>body:child</code>替换位<code>body:IndexedStack(...)</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line"> * IndexedStack继承自Stack，</span><br><span class="line"> * 它的作用是显示第index个child，</span><br><span class="line"> * 其它child在页面上是不可见的，但所有child的状态都被保持，所以这个Widget可以实现我们的需求，</span><br><span class="line"> * 我们只需要将现在的body用IndexedStack包裹一层即可</span><br><span class="line"> *&#x2F;</span><br><span class="line">body: IndexedStack(</span><br><span class="line">  index: this._current,</span><br><span class="line">  children: this._widgets,</span><br><span class="line">),</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>发布者:</span>
+                        <span>十一</span>
+                    </p>
+                
+                
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span></span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">上一级</a>
+                <span>· </span>
+                <a href="/">Yeungxsheng&#39;s Blog</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2020/08/19/Flutter%E7%9B%B8%E5%85%B3%E7%9A%84%E5%AE%9D%E8%97%8F%E7%BD%91%E5%9D%80/">Flutter相关的宝藏网址</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            <a class="floating-btn left isOpen" href="javascrip:;">聚光灯: <span class=""></span></a>
+            <a class="floating-btn right isAuto" href="javascrip:;">聚光灯: <span class=""></span></a>
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© 十一 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
