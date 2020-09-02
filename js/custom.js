@@ -4,8 +4,8 @@ var ClassMain = '.main-bg', Main, MainBg;
 // 聚光灯参数
 var _sl_btn_isOpen;
 var _sl_btn_isAuto;
-var _sl_btn_isOpen_is = true;
-var _sl_btn_isAuto_is = true
+var _sl_btn_isOpen_is = false;
+var _sl_btn_isAuto_is = false
 
 // main元素以外的上面的所有元素高度
 var MainTopHeight = 64
@@ -34,13 +34,13 @@ window.onload = function () {
   onAuto()
 }
 
-// 开启 or 关闭切换
+// 开启 or 关闭
 function onOpen () {
   MainBg.style['display'] = _sl_btn_isOpen_is ? 'block' : 'none'
   _sl_btn_isOpen.querySelector('span').innerText = _sl_btn_isOpen_is ? '开启' : '关闭'
 }
 
-// 自动 or 手动切换
+// 自动 or 手动
 function onAuto () {
 
   if (!_sl_btn_isOpen_is) return
